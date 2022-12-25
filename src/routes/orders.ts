@@ -15,7 +15,11 @@ router.get('/:filename', (req, res) => {
 });
 
 router.post('/', upload.single('file'), async (req, res) => {
-  const originalname = req.file.originalname;
+  const originalname = req.file?.originalname;
+  if (!originalname) {
+    res.status(403).send('CSV file is required');
+  }
+
   const data = req.file.buffer.toString('utf8');
   const orders = data.split('\n');
   const { csv0, csv1 } = await getOrdersStatistics(orders);

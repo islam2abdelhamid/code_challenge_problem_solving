@@ -1,14 +1,5 @@
 import { getAverageQuantityPurchasedPerOrder } from './getAveragePurchased';
-import { getMaxValueKey } from './getMaxValueKey';
 import { getMostPopularBrand } from './getMostPopularBrand';
-
-interface Order {
-  id: string;
-  aria: string;
-  product: string;
-  quantity: number;
-  brand: string;
-}
 
 export const generateStatistics = (orders: string[]) => {
   const ordersMap = {};

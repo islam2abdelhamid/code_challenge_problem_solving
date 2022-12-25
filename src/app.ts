@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.use('/orders-statistics', ordersRoute);
+app.use('/orders', ordersRoute);
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
